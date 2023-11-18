@@ -1,0 +1,189 @@
+<head>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.2/d3plus.full.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+
+  <!-- Bootstrap JS and Popper.js (required for some Bootstrap components) -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+</head>
+
+<div id="app">
+  <!DOCTYPE html>
+  <meta charset="utf-8" />
+
+  <div class="container">
+    <h1>Test</h1>
+    <a href="https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51"
+      >Color pallete</a
+    >
+
+    <iframe
+      title="Tipo de residencia"
+      aria-label="Bar chart"
+      id="datawrapper-chart-1P5lm"
+      src="https://datawrapper.dwcdn.net/1P5lm/2/"
+      scrolling="no"
+      frameborder="0"
+      style="width: 0; min-width: 100% !important; border: none"
+      height="237"
+      data-external="1"
+    ></iframe>
+    <script type="text/javascript">
+      !(function () {
+        'use strict';
+        window.addEventListener('message', function (a) {
+          if (void 0 !== a.data['datawrapper-height']) {
+            var e = document.querySelectorAll('iframe');
+            for (var t in a.data['datawrapper-height'])
+              for (var r = 0; r < e.length; r++)
+                if (e[r].contentWindow === a.source) {
+                  var i = a.data['datawrapper-height'][t] + 'px';
+                  e[r].style.height = i;
+                }
+          }
+        });
+      })();
+    </script>
+
+    <iframe
+      title="Tipo de propiedad"
+      aria-label="Bar chart"
+      id="datawrapper-chart-3H6fL"
+      src="https://datawrapper.dwcdn.net/3H6fL/4/"
+      scrolling="no"
+      frameborder="0"
+      style="width: 0; min-width: 100% !important; border: none"
+      height="423"
+      data-external="1"
+    ></iframe>
+    <script type="text/javascript">
+      !(function () {
+        'use strict';
+        window.addEventListener('message', function (a) {
+          if (void 0 !== a.data['datawrapper-height']) {
+            var e = document.querySelectorAll('iframe');
+            for (var t in a.data['datawrapper-height'])
+              for (var r = 0; r < e.length; r++)
+                if (e[r].contentWindow === a.source) {
+                  var i = a.data['datawrapper-height'][t] + 'px';
+                  e[r].style.height = i;
+                }
+          }
+        });
+      })();
+    </script>
+
+    <!-- load D3js -->
+    <script src="//d3plus.org/js/d3.js"></script>
+
+    <!-- load D3plus after D3js -->
+    <script src="//d3plus.org/js/d3plus.js"></script>
+
+    <!-- create container element for visualization -->
+    <p>
+      Se muestra el precio de venta medio para los 20 pueblos con los precio de
+      venta más elevados. El color representa a los mejores ratios de venta
+      (precio de venta / valore del inmueble)... Se han eliminado los outliers a
+      partir del z-score para tener un valor real Permite identificar los
+      mercados más grandes y, de entre estos, los que tienen mejor ratio de
+      valor de venta, respecto al valor de taación.
+    </p>
+    <div id="viz"></div>
+
+    <br />
+    <p>
+      Gráfico dónde se muestra el valor de venta segun el tipo de inmueble y por
+      cada año, así podemos ver la evolución. Estos datos han sido normalizados
+      con el valor de la inflación de estados unidos
+      (https://fred.stlouisfed.org/series/CPIAUCNS), para ver una evolución no
+      enganyosa... Además, si hacemos hover podemos identificar cada una de las
+      tendencias con más facilidad.
+    </p>
+
+    <iframe
+      title="Evolución del precio de venta (ajustado al IPC) por tipo de residencia"
+      aria-label="Interactive line chart"
+      id="datawrapper-chart-DN7S0"
+      src="https://datawrapper.dwcdn.net/DN7S0/2/"
+      scrolling="no"
+      frameborder="0"
+      style="width: 0; min-width: 100% !important; border: none"
+      height="399"
+      data-external="1"
+    ></iframe>
+    <script type="text/javascript">
+      !(function () {
+        'use strict';
+        window.addEventListener('message', function (a) {
+          if (void 0 !== a.data['datawrapper-height']) {
+            var e = document.querySelectorAll('iframe');
+            for (var t in a.data['datawrapper-height'])
+              for (var r = 0; r < e.length; r++)
+                if (e[r].contentWindow === a.source) {
+                  var i = a.data['datawrapper-height'][t] + 'px';
+                  e[r].style.height = i;
+                }
+          }
+        });
+      })();
+    </script>
+
+    <p>
+      A contnuación se realiza un filtrado por el pueblo de Norwalk, que tiene
+      el mejor ratio de venta. No se muestran los tipod e residencia de Three y
+      Four Family debido a la falta de datos en este pueblo.
+    </p>
+    <iframe
+      title="Evolución del precio de venta en Norwalk (ajustado al IPC) por tipo de residencia "
+      aria-label="Interactive line chart"
+      id="datawrapper-chart-KyA4a"
+      src="https://datawrapper.dwcdn.net/KyA4a/1/"
+      scrolling="no"
+      frameborder="0"
+      style="width: 0; min-width: 100% !important; border: none"
+      height="388"
+      data-external="1"
+    ></iframe>
+    <script type="text/javascript">
+      !(function () {
+        'use strict';
+        window.addEventListener('message', function (a) {
+          if (void 0 !== a.data['datawrapper-height']) {
+            var e = document.querySelectorAll('iframe');
+            for (var t in a.data['datawrapper-height'])
+              for (var r = 0; r < e.length; r++)
+                if (e[r].contentWindow === a.source) {
+                  var i = a.data['datawrapper-height'][t] + 'px';
+                  e[r].style.height = i;
+                }
+          }
+        });
+      })();
+    </script>
+
+    <p>Hola</p>
+    <img src="assets/scatter.png" alt="Scatter Plot" />
+  </div>
+</div>
